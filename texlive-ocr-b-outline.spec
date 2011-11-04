@@ -1,3 +1,9 @@
+# revision 20969
+# category Package
+# catalog-ctan /fonts/ocr-b-outline
+# catalog-date 2011-01-07 10:11:51 +0100
+# catalog-license other-free
+# catalog-version undef
 Name:		texlive-ocr-b-outline
 Version:	20110107
 Release:	1
@@ -61,6 +67,7 @@ ocr-b package should also be installed.
 %doc %{_texmfdistdir}/source/fonts/ocr-b-outline/ocrb7.sfd
 %doc %{_texmfdistdir}/source/fonts/ocr-b-outline/ocrb8.sfd
 %doc %{_texmfdistdir}/source/fonts/ocr-b-outline/ocrb9.sfd
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -71,3 +78,5 @@ ocr-b package should also be installed.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts doc source %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
