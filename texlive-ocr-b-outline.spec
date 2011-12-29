@@ -18,9 +18,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
 
 %description
 The package contains OCR-B fonts in Type1 and OpenType formats.
@@ -28,20 +25,12 @@ They were generated from the MetaFont sources of the OCR-B
 fonts. The metric files are not included here, so that original
 ocr-b package should also be installed.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -68,7 +57,6 @@ ocr-b package should also be installed.
 %doc %{_texmfdistdir}/source/fonts/ocr-b-outline/ocrb7.sfd
 %doc %{_texmfdistdir}/source/fonts/ocr-b-outline/ocrb8.sfd
 %doc %{_texmfdistdir}/source/fonts/ocr-b-outline/ocrb9.sfd
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -79,5 +67,3 @@ ocr-b package should also be installed.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
