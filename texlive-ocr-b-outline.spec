@@ -1,19 +1,13 @@
-# revision 20969
-# category Package
-# catalog-ctan /fonts/ocr-b-outline
-# catalog-date 2011-01-07 10:11:51 +0100
-# catalog-license other-free
-# catalog-version undef
 Name:		texlive-ocr-b-outline
-Version:	20190228
+Version:	20969
 Release:	1
 Summary:	OCR-B fonts in Type 1 and OpenType
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/ocr-b-outline
 License:	OTHER-FREE
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ocr-b-outline.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ocr-b-outline.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ocr-b-outline.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ocr-b-outline.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ocr-b-outline.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ocr-b-outline.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -26,12 +20,12 @@ fonts. The metric files are not included here, so that original
 ocr-b package should also be installed.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -60,24 +54,11 @@ ocr-b package should also be installed.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar fonts doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 20110107-2
-+ Revision: 754501
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 20110107-1
-+ Revision: 719151
-- texlive-ocr-b-outline
-- texlive-ocr-b-outline
-- texlive-ocr-b-outline
-- texlive-ocr-b-outline
-
