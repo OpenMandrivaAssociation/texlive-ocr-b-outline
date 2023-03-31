@@ -1,6 +1,6 @@
 Name:		texlive-ocr-b-outline
 Version:	20969
-Release:	1
+Release:	2
 Summary:	OCR-B fonts in Type 1 and OpenType
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/fonts/ocr-b-outline
