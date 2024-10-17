@@ -3,7 +3,7 @@ Version:	20969
 Release:	2
 Summary:	OCR-B fonts in Type 1 and OpenType
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/fonts/ocr-b-outline
+URL:		https://www.ctan.org/tex-archive/fonts/ocr-b-outline
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ocr-b-outline.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/ocr-b-outline.doc.r%{version}.tar.xz
